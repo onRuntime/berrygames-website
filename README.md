@@ -30,7 +30,7 @@ BerryGames official website.
 * Finally, setup your ``.env`` as the [.env.example](.env.example)
 
 ## Usage
-Note:
+Notes:
 
 * Especially when you operate on an existing production project, do not put the following folders/files:
 ```

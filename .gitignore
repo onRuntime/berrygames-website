@@ -7,7 +7,7 @@
 /config/secrets/prod/prod.decrypt.private.php
 /var/
 /vendor/
-/tests/
+
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

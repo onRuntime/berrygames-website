@@ -32,7 +32,7 @@ BerryGames official website.
 ## Usage
 * Note:
 
-Especially when you operate on an existing production project, do not put the following folders/files:
+* Especially when you operate on an existing production project, do not put the following folders/files:
 ```
 - .env
 - var

@@ -27,7 +27,7 @@ BerryGames official website.
 > composer install
 ```
 
-* Finally, setup your .env as the [.env.example](.env.example)
+* Finally, setup your ``.env`` as the [.env.example](.env.example)
 
 ## Usage
 * Note:

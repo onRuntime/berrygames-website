@@ -14,10 +14,38 @@
 BerryGames official website.
 
 ## Installation
-Complete description of the installation for a developer.
+* [Install Symfony](https://symfony.com/doc/current/setup.html) with Composer (see [requirements details](https://symfony.com/doc/current/reference/requirements.html)).
+
+* Then run the following commands:
+```
+# Clone the project to download its contents
+> cd projects/
+> git clone https://github.com/onRuntime/berrygames-website.git
+
+# Make Composer install the project's dependencies into vendor/
+> cd berrygames-website/
+> composer install
+```
+
+* Finally, setup your .env as the .env.example
 
 ## Usage
-Complete description of the usage for a developer.
+* Note:
+Especially when you operate on an existing production project, do not put the following folders/files:
+- .env
+- var
+- vendor
+- .idea
+- .git
+- public/forum
+
+* In case of error 500 try to use the following commands in the project folder:
+- chmod -R 777 var/log/
+- chmod -R 777 var/cache/
+
+* At each production start, perform the following commands in the project folder:
+- rm -rf var/cache/prod/
+- rm -rf var/cache/dev/ (if the folder exists)
 
 ## Support
 <a href="https://www.patreon.com/onruntime">

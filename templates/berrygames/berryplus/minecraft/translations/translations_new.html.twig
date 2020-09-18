@@ -1,0 +1,15 @@
+{% extends 'berrygames/berryplus/base.html.twig' %}
+
+{% block page_title %}Create new key{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="card card-primary">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+                {{ include('berrygames/berryplus/minecraft/translations/translations_form.html.twig', { button: 'Create new key'}) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

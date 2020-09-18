@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BerryGames • News | {{ new.title }}{% endblock %}
+
+{% block stylesheets_css %}
+    <link rel="stylesheet" href="//cdn.berrygames.net/css/home/style.css">
+{% endblock %}
+
+{% block content %}
+    <style>
+        .header {
+            position: relative;
+            background: var(--bry-black-light);
+        }
+
+        .article h4 {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .post .post-category { font-size: 16px }
+
+        .article {
+            max-width: 75%;
+            margin: 15px auto;
+            font-size: 16px;
+        }
+
+        .article img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+
+    <div class="container">
+        <div class="article">
+            <div class="row justify-content-md-center">
+                <div class="col-md-12 post">
+                    <img src="{{ new.thumbnails }}" class="img-thumbnail" alt="Title">
+                    <div class="post-title">{{ new.title }}</div>
+                    <div class="post-category">{{ new.category }}</div>
+                    <div class="post-edition">{{ new.post.postDate | date('F jS \\a\\t g:ia') }} by {{ new.post.username }} </div>
+                </div>
+                <div class="col-md-11">
+                    {{ new.content | raw }}
+                </div>
+            </div>
+            <!--<div class="metadata">Ecrit le {{ new.post.postDate | date('d/m/Y') }} à {{ new.post.postDate | date('H:i') }} dans la catégorie Politique | Temps de lecture: {{ new.readTime }} min | Vues: {{ new.views }}</div>-->
+        </div>
+    </div>
+{% endblock %}

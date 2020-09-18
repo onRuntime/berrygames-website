@@ -1,0 +1,6 @@
+controllers:
+    resource: ../../src/Controller/
+    type: annotation
+
+berryplus_logout:
+    path: /berryplus/logout

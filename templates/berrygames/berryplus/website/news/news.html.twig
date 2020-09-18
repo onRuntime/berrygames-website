@@ -1,0 +1,132 @@
+{% extends 'berrygames/berryplus/base.html.twig' %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-success btn-sm" href="{{ path('berryplus.website.news.new') }}">
+                    <i class="fas fa-plus">
+                    </i>
+                    Create a new news
+                </a>
+                {% for message in app.flashes('success') %}
+                    <div class="btn btn-success btn-sm">{{ message }}</div>
+                {% endfor %}
+                <div class="card-tools">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Search News">
+                        <div class="input-group-append">
+                            <div class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                    <tr>
+                        <th style="width: 1%">
+                            #
+                        </th>
+                        <th style="width: 15%">
+                            Title
+                        </th>
+                        <th style="text-align: center;">
+                            Category
+                        </th>
+                        <th style="width: 20%">
+                            Thumbnails
+                        </th>
+                        <th style="width: 10%">
+                            Link
+                        </th>
+                        <th style="width: 3%; text-align: center;">
+                            PostId
+                        </th>
+                        <th style="width: 10%; text-align: center;">
+                            Read time
+                        </th>
+                        <th style="width: 10%; text-align: center;">
+                            Views
+                        </th>
+                        <th style="width: 10%; text-align: center;">
+                            Display
+                        </th>
+                        <th style="width: 20%">
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for new in news %}
+                        <tr id="{{ new.id }}">
+                            <td>
+                                {{ new.id }}
+                            </td>
+                            <td>
+                                <a>
+                                    {{ new.title }}
+                                </a>
+                                <br/>
+                                <!--
+                                <small>
+                                    Created 01.01.2019
+                                </small>
+                                -->
+                            </td>
+                            <td style="text-align: center;">
+                                {{ new.category }}
+                            </td>
+                            <td>
+                                <img height="75px" alt="" src="{{ new.thumbnails }}">
+                            </td>
+                            <td>
+                                <a href="{{ path('news_show', {'link': new.link }) }}">{{ new.link }}</a>
+                            </td>
+                            <td style="text-align: center;">
+                                {{ new.postId }}
+                            </td>
+                            <td style="text-align: center;">
+                                {{ new.readTime }} min
+                            </td>
+                            <td style="text-align: center;">
+                                {{ new.views }}
+                            </td>
+                            <td style="text-align: center;">
+                                {{ new.display }}
+                            </td>
+                            <td class="project-actions text-right">
+                                <a class="btn btn-primary btn-sm" href="#">
+                                    <i class="fas fa-folder">
+                                    </i>
+                                    View
+                                </a>
+                                <a class="btn btn-info btn-sm"
+                                   href="{{ path('berryplus.website.news.edit', {'id': new.id }) }}">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger btn-sm"
+                                   href="{{ path('berryplus.website.news.delete', {'id': new.id }) }}"
+                                   onclick='return confirm("Are you sure you want to delete {{ new.title }}?")'>
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+    <!-- /.content -->
+{% endblock %}

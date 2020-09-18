@@ -1,0 +1,15 @@
+{% extends 'berrygames/berryplus/base.html.twig' %}
+
+{% block page_title %}Edit {{ rank.rankid }}{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="card card-primary">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+                {{ include("berrygames/berryplus/minecraft/ranks/ranks_form.html.twig", {form: form, button: 'Save Changes'}) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

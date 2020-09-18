@@ -1,0 +1,44 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        from_database:
+            entity:
+                class: App\Entity\Website\BerryPlusUser
+                property: 'username'
+                manager_name: 'website'
+
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        berryplus:
+            anonymous: lazy
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+            # http_basic: true
+            form_login:
+                login_path: berryplus.login
+                check_path: berryplus.login
+                default_target_path: berryplus
+            logout:
+                path: berryplus_logout
+                target: berryplus.login
+        
+        
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/berryplus/login, allow_if: "is_anonymous() and !is_authenticated()" }
+        - { path: ^/berryplus, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }
+
+    encoders:
+        App\Entity\Website\BerryPlusUser:
+            algorithm: bcrypt
+            cost: 12

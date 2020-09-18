@@ -1,0 +1,77 @@
+{% extends 'berrygames/berryplus/base.html.twig' %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-success btn-sm" href="{{ path('berryplus.berryplus.users.new') }}">
+                    <i class="fas fa-plus">
+                    </i>
+                    Create a new user
+                </a>
+                {% for message in app.flashes('success') %}
+                    <div class="btn btn-success btn-sm">{{ message }}</div>
+                {% endfor %}
+                <div class="card-tools">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Search User">
+                        <div class="input-group-append">
+                            <div class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body pb-0">
+                <div class="row d-flex align-items-stretch">
+                    {% for user in users %}
+                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div class="card bg-light">
+                                <div class="card-header text-muted border-bottom-0">
+                                    Admin
+                                </div>
+                                <div class="card-body pt-0">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <h2 class="lead"><b>{{ user.username }}</b></h2>
+                                            <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic
+                                                Artist / Coffee Lover </p>
+                                        </div>
+                                        <div class="col-5 text-center">
+                                            <img src="//minotar.net/helm/{{ user.username }}/128.png" alt=""
+                                                 class="img-circle img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="text-right">
+                                        <a class="btn btn-info btn-sm"
+                                           href="{{ path('berryplus.berryplus.users.edit', {'user': user.username }) }}">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Edit
+                                        </a>
+                                        <a class="btn btn-danger btn-sm"
+                                           href="{{ path('berryplus.berryplus.users.delete', {'user': user.username }) }}"
+                                           onclick='return confirm("Are you sure you want to delete {{ user.username }}?")'>
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+    <!-- /.content -->
+{% endblock %}

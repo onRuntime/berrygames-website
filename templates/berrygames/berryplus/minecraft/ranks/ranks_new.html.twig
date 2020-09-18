@@ -1,0 +1,15 @@
+{% extends 'berrygames/berryplus/base.html.twig' %}
+
+{% block page_title %}Create new rank{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="card card-primary">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+                {{ include('berrygames/berryplus/minecraft/ranks/players_form.html.twig', { button: 'Create new rank'}) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

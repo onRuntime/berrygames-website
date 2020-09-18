@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+<div class="row">
+    <div class="col-12">
+        <a href="{{ path('berryplus.website.news') }}" class="btn btn-secondary">Cancel</a>
+        <input type="submit" value="{{ button }}" class="btn btn-success float-right">
+    </div>
+</div>
+{{ form_end(form) }}

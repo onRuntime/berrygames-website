@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BerryGames • Branding{% endblock %}
+{% block description %}Branding guidelines for BerryGames.{% endblock %}
+{% block keywords %}branding, design, logo, colors{% endblock %}
+
+{% block stylesheets_css %}
+    <link rel="stylesheet" href="//cdn.berrygames.net/css/branding/style.css">
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container">
+            <div class="head">
+                <h1 class="title">Branding</h1>
+                <p>BerryGames is a quality brand, we want to keep a good image, so if you want to use our art, try to
+                    show
+                    goodwill and show it to us so we can approve it.</p>
+            </div>
+            <div class="part" id="logo">
+                <h2 class="title">Our Logo</h2>
+                <p class="desc">Please do not edit, change, distort, recolor, or reconfigure the BerryGames logo.</p>
+                <div class="_card">
+                    <img src="https://cdn.berrygames.net/img/logo/logo.png" alt="Logo BerryGames">
+                    <a href="https://cdn.berrygames.net/img/logo/logo.png" download>.png</a>
+                </div>
+            </div>
+            <div class="part" id="spacing">
+                <h2 class="title">Spacing Considerations</h2>
+                <p class="desc">Coming soon.</p>
+            </div>
+            <div class="part" id="spacing">
+                <h2 class="title">Fonts</h2>
+                <h3>Montserrat</h3>
+                <div style="font-size: 25px">1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+            </div>
+            <div class="part" id="colors">
+                <h2 class="title">Colors</h2>
+                <div class="row no-gutters">
+                    <div class="col-md-2">
+                        <div class="_card" style="background: var(--bry-green);">
+                            <div>Green</div>
+                            <div class="down">
+                                #088972
+                                <br>
+                                CMYK 94, 0, 17, 46
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="_card" style="background: var(--bry-green-light);">
+                            <div>Green Light</div>
+                            <div class="down">
+                                #0DB496
+                                <br>
+                                CMYK 93, 0, 17, 29
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="_card" style="background: var(--bry-white); color: var(--bry-black);">
+                            <div>White</div>
+                            <div class="down">
+                                #FFFFFF
+                                <br>
+                                CMYK 0, 0, 100, 0
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="_card" style="background: var(--bry-gray);">
+                            <div>Gray</div>
+                            <div class="down">
+                                #A4B0BE
+                                <br>
+                                CMYK 14, 7, 0, 25
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="_card" style="background: var(--bry-black-light);">
+                            <div>Black Light</div>
+                            <div class="down">
+                                #23272A
+                                <br>
+                                CMYK 17, 7, 0, 84
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="_card" style="background: var(--bry-black);">
+                            <div>Black</div>
+                            <div class="down">
+                                #202122
+                                <br>
+                                CMYK 6, 3, 0, 87
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

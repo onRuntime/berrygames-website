@@ -1,0 +1,103 @@
+{% extends 'berrygames/berryplus/base.html.twig' %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-success btn-sm" href="{{ path('berryplus.minecraft.gifts.new') }}">
+                    <i class="fas fa-plus">
+                    </i>
+                    Create a new gift
+                </a>
+                {% for message in app.flashes('success') %}
+                    <div class="btn btn-success btn-sm">{{ message }}</div>
+                {% endfor %}
+                <div class="card-tools">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Search Gift">
+                        <div class="input-group-append">
+                            <div class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                    <tr>
+                        <th style="width: 15%">
+                            Gift
+                        </th>
+                        <th>
+                            Command
+                        </th>
+                        <th>
+                            Uses
+                        </th>
+                        <th>
+                            Used
+                        </th>
+                        <th>
+                            Start Date
+                        </th>
+                        <th>
+                            End Date
+                        </th>
+                        <th style="width: 15%">
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for gift in gifts %}
+                        <tr id="{{ gift.code }}">
+                            <td>
+                                <a>
+                                    {{ gift.code }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ gift.command }}
+                            </td>
+                            <td>
+                                {{ gift.uses }}
+                            </td>
+                            <td>
+                                {{ gift.used|length }}
+                            </td>
+                            <td>
+                                {{ gift.startDate|date("d/m/Y") }}
+                            </td>
+                            <td>
+                                {{ gift.endDate|date("d/m/Y") }}
+                            </td>
+                            <td class="project-actions text-right">
+                                <a class="btn btn-info btn-sm"
+                                   href="{{ path('berryplus.minecraft.gifts.edit', {'gift': gift.code }) }}">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger btn-sm"
+                                   href="{{ path('berryplus.minecraft.gifts.delete', {'gift': gift.code }) }}"
+                                   onclick='return confirm("Are you sure you want to delete {{ gift.code }}?")'>
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+    <!-- /.content -->
+{% endblock %}

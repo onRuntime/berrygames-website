@@ -1,0 +1,103 @@
+{% extends 'berrygames/berryplus/base.html.twig' %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-success btn-sm" href="{{ path('berryplus.minecraft.ranks.new') }}">
+                    <i class="fas fa-plus">
+                    </i>
+                    Create a new rank
+                </a>
+                {% for message in app.flashes('success') %}
+                    <div class="btn btn-success btn-sm">{{ message }}</div>
+                {% endfor %}
+                <div class="card-tools">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Search Rank">
+                        <div class="input-group-append">
+                            <div class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                    <tr>
+                        <th style="width: 15%">
+                            Rank
+                        </th>
+                        <th>
+                            Tab
+                        </th>
+                        <th>
+                            Tag
+                        </th>
+                        <th>
+                            Prefix
+                        </th>
+                        <th>
+                            Suffix
+                        </th>
+                        <th>
+                            Permission
+                        </th>
+                        <th style="width: 15%">
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for rank in ranks %}
+                        <tr id="{{ rank.rankid }}">
+                            <td>
+                                <a>
+                                    {{ rank.rankid }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ rank.tab }}
+                            </td>
+                            <td>
+                                {{ rank.tag }}
+                            </td>
+                            <td>
+                                {{ rank.prefix }}
+                            </td>
+                            <td>
+                                {{ rank.suffix }}
+                            </td>
+                            <td>
+                                {{ rank.permission }}
+                            </td>
+                            <td class="project-actions text-right">
+                                <a class="btn btn-info btn-sm"
+                                   href="{{ path('berryplus.minecraft.ranks.edit', {'rank': rank.rankid }) }}">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger btn-sm"
+                                   href="{{ path('berryplus.minecraft.ranks.delete', {'rank': rank.rankid }) }}"
+                                   onclick='return confirm("Are you sure you want to delete {{ rank.rankid }}?")'>
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+    <!-- /.content -->
+{% endblock %}

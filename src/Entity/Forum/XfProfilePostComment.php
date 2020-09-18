@@ -1,0 +1,277 @@
+<?php
+
+namespace App\Entity\Forum;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * XfProfilePostComment
+ *
+ * @ORM\Table(name="xf_profile_post_comment", indexes={@ORM\Index(name="comment_date", columns={"comment_date"}), @ORM\Index(name="profile_post_id_comment_date", columns={"profile_post_id", "comment_date"}), @ORM\Index(name="user_id", columns={"user_id"})})
+ * @ORM\Entity
+ */
+class XfProfilePostComment
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="profile_post_comment_id", type="integer", nullable=false, options={"unsigned"=true})
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $profilePostCommentId;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="profile_post_id", type="integer", nullable=false, options={"unsigned"=true})
+     */
+    private $profilePostId;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="user_id", type="integer", nullable=false, options={"unsigned"=true})
+     */
+    private $userId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=50, nullable=false)
+     */
+    private $username;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="comment_date", type="integer", nullable=false, options={"unsigned"=true})
+     */
+    private $commentDate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="message", type="text", length=16777215, nullable=false)
+     */
+    private $message;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="ip_id", type="integer", nullable=false, options={"unsigned"=true})
+     */
+    private $ipId = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="message_state", type="string", length=0, nullable=false, options={"default"="visible"})
+     */
+    private $messageState = 'visible';
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="reaction_score", type="integer", nullable=false)
+     */
+    private $reactionScore = '0';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="reactions", type="blob", length=65535, nullable=true)
+     */
+    private $reactions;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reaction_users", type="blob", length=65535, nullable=false)
+     */
+    private $reactionUsers;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="warning_id", type="integer", nullable=false, options={"unsigned"=true})
+     */
+    private $warningId = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="warning_message", type="string", length=255, nullable=false)
+     */
+    private $warningMessage = '';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="embed_metadata", type="blob", length=65535, nullable=true)
+     */
+    private $embedMetadata;
+
+    public function getProfilePostCommentId(): ?int
+    {
+        return $this->profilePostCommentId;
+    }
+
+    public function getProfilePostId(): ?int
+    {
+        return $this->profilePostId;
+    }
+
+    public function setProfilePostId(int $profilePostId): self
+    {
+        $this->profilePostId = $profilePostId;
+
+        return $this;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(int $userId): self
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getCommentDate(): ?int
+    {
+        return $this->commentDate;
+    }
+
+    public function setCommentDate(int $commentDate): self
+    {
+        $this->commentDate = $commentDate;
+
+        return $this;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
+    public function setMessage(string $message): self
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
+    public function getIpId(): ?int
+    {
+        return $this->ipId;
+    }
+
+    public function setIpId(int $ipId): self
+    {
+        $this->ipId = $ipId;
+
+        return $this;
+    }
+
+    public function getMessageState(): ?string
+    {
+        return $this->messageState;
+    }
+
+    public function setMessageState(string $messageState): self
+    {
+        $this->messageState = $messageState;
+
+        return $this;
+    }
+
+    public function getReactionScore(): ?int
+    {
+        return $this->reactionScore;
+    }
+
+    public function setReactionScore(int $reactionScore): self
+    {
+        $this->reactionScore = $reactionScore;
+
+        return $this;
+    }
+
+    public function getReactions()
+    {
+        return $this->reactions;
+    }
+
+    public function setReactions($reactions): self
+    {
+        $this->reactions = $reactions;
+
+        return $this;
+    }
+
+    public function getReactionUsers()
+    {
+        return $this->reactionUsers;
+    }
+
+    public function setReactionUsers($reactionUsers): self
+    {
+        $this->reactionUsers = $reactionUsers;
+
+        return $this;
+    }
+
+    public function getWarningId(): ?int
+    {
+        return $this->warningId;
+    }
+
+    public function setWarningId(int $warningId): self
+    {
+        $this->warningId = $warningId;
+
+        return $this;
+    }
+
+    public function getWarningMessage(): ?string
+    {
+        return $this->warningMessage;
+    }
+
+    public function setWarningMessage(string $warningMessage): self
+    {
+        $this->warningMessage = $warningMessage;
+
+        return $this;
+    }
+
+    public function getEmbedMetadata()
+    {
+        return $this->embedMetadata;
+    }
+
+    public function setEmbedMetadata($embedMetadata): self
+    {
+        $this->embedMetadata = $embedMetadata;
+
+        return $this;
+    }
+
+
+}

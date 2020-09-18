@@ -1,0 +1,4 @@
+Sitemap: https://berrygames.net/sitemap.xml
+Sitemap: https://berrygames.net/forum/sitemap.xml
+User-agent: *
+Disallow:

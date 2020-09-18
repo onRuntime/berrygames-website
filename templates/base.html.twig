@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required Meta Tags -->
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta
+            name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Primary Meta Tags -->
+    <title>
+        {% block title %}BerryGames
+        {% endblock %}
+    </title>
+    <meta name="description"
+          content="{% block description %}BerryGames is a free Minecraft Mini Games server, come and discover Bedwars, Skywars and many more! Play for FREE in 1.8+!{% endblock %}"/>
+    <meta
+            name="keywords"
+            content="berrygames, serveur mini-jeux, serveur skyblock, skyblock minecraft, skyblock, spaceballs, minecraft mini-jeux, serveur faction, serveur freebuild, freecube, minecraft serveur, serveur minecraft, launcher minecraft, télécharger, download, launcher lifecraft, lifecraft launcher, minecraft lifecraft, launcher premium, launcher gratuit, minecraft, launcher minecraft, telecharger, installer, 1.8, 1.9, 1.10, 1.11, 1.7 launcher, minecraft, cracké, premium, non officiel, launcher gratuit, officiel, serveur, badblock, français, serveur français, launchers, badblock, loncher, executable, rush, tower, speeduhc, uhcspeed, uhc run, uhcrun, cts, capture the sheep, capture the flag, ctf, survivalgames, survival, hungergames, hg, survivalgame, spaceballs, cube of steels, cube of steel, spaceball, space ball, pearlswar, pearlswar, pvpbox, box, 1v1, dayz, infecté, faction, serveur minecraft, minecraft, skyblock, freebuild, launcher minecraft, minecraft, jouer, minecraft, gratuit, minecraft gratuit, minecraft crack, crack, meilleur launcher de france, {% block keywords %}{% endblock %}"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.berrygames.net/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.berrygames.net/css/base/style.css"> {% block stylesheets_css %}{% endblock %}
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat&display=swap">
+    <link rel="stylesheet"
+          href="//maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"> {% block stylesheets_fonts %}{% endblock %}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="BerryGames">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://berrygames.net">
+    <meta property="og:title" content="{{ block('title') }}">
+    <meta property="og:description" content="{{ block('description') }}">
+    <meta
+            property="og:image" content="https://cdn.berrygames.net/favicon/android-chrome-512x512.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://berrygames.net">
+    <meta name=”twitter:site” content=”@BerryGamesMC”>
+    <meta name=”twitter:creator” content=”@BerryGamesMC”>
+    <meta name="twitter:title" content="{{ block('title') }}">
+    <meta name="twitter:description" content="{{ block('description') }}">
+    <meta name="twitter:image" content="https://cdn.berrygames.net/img/logo/logo.png">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="//cdn.berrygames.net/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="//cdn.berrygames.net/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="//cdn.berrygames.net/favicon/favicon-16x16.png">
+    <link
+            rel="manifest" href="//cdn.berrygames.net/favicon/site.webmanifest">
+
+    <!-- JS -->
+    {% block javascripts_top %}{% endblock %}
+
+</head>
+<body>
+<!-- NOTIF -->
+<div class="popup">
+    <div class="row">
+        <div class="col-md-12 popup-item hidden" id="cookies-warning">
+            <div class="popup-item-close">
+                <i class="las la-times"></i>
+            </div>
+            <div class="popup-item-title">Cookies Policy</div>
+            <div class="popup-item-content">
+                This Website uses Cookies to offer you a high-quality user experience. By continuing your browsing, you
+                agree to the deposit of third-party Cookies intended for the purposes indicated in the Cookies Charter.
+            </div>
+            <div class="popup-item-button button button--primary">Close</div>
+        </div>
+    </div>
+</div>
+<!-- HEADER -->
+<div class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="//berrygames.net">
+                <img src="//cdn.berrygames.net/img/logo/logo.png" alt="Logo BerryGames">
+            </a>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain"
+                    aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span>MENU</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('index') }}">
+                            <h1>Home</h1>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="//berrygames.net/forum">
+                            <h1>Forum</h1>
+                        </a>
+                    </li>
+                    <span></span>
+                    <li class="nav-item">
+                        <a class="nav-link" href="//store.berrygames.net">
+                            <h1>Store</h1>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="//stats.berrygames.net">
+                            <h1>Stats</h1>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- END HEADER -->
+
+<!-- CONTENT -->
+{% block content %}{% endblock %}
+<!-- END CONTENT-->
+
+<!-- FOOTER -->
+<div class="footer">
+    <div class="media">
+        <a target="_blank" href="//twitter.com/BerryGamesMC" class="twitter">
+            <i class="lab la-twitter"></i>
+            Follow @BerryGamesMC
+        </a>
+        <a href="{{ path('index') }}#promoted" class="join-us">
+            <i class="las la-gamepad"></i>
+            Join the 800 players
+        </a>
+    </div>
+
+    <div class="footer-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 footer-item">
+                    <a href="{{ path('index') }}">
+                        <img src="//cdn.berrygames.net/img/logo/logo.png" alt="Logo BerryGames">
+                    </a>
+                </div>
+                <div class="col-md-4 footer-item">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="title">Product</div>
+                            <div class="links">
+                                <a href="">Launcher</a>
+                                <a href="{{ path('branding') }}">Branding</a>
+                                <a href="">Store</a>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="title">Social Networks</div>
+                            <div class="links">
+                                <a target="_blank" href="//facebook.com/BerryGamesMC">Facebook</a>
+                                <a target="_blank" href="//twitter.com/BerryGamesMC">Twitter</a>
+                                <a target="_blank"
+                                   href="//youtube.com/channel/UClM6wO9PB2hylU7sl5bnJNg?sub_confirmation=1">Youtube</a>
+                                <a target="_blank" href="//twitch.tv/berrygamesmc">Twitch</a>
+                                <a target="_blank" href="//instagram.com/berrygamesmc">Instagram</a>
+                                <a target="_blank" href="//snapchat.com/add/berrygamesmc">Snapchat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-item">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="title">Ressources</div>
+                            <div class="links">
+                                <a href="">Help &amp; Support</a>
+                                <a href="//berrygames.net/forum/forums/tutorials/">Tutorials</a>
+                                <a href="">Feedback</a>
+                                <a href="{{ path('tos') }}">Terms of Service</a>
+                                <a href="">Privacy</a>
+                                <a href="">Status</a>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="title">Compagny</div>
+                            <div class="links">
+                                <a href="">About</a>
+                                <a href="{{ path('news') }}">News</a>
+                                <a href="//berrygames.net/forum/forums/jobs/">Jobs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 footer-item">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="title">More</div>
+                            <div class="links">
+                                <a href="">Partners</a>
+                                <a href="">Votes</a>
+                                <a href=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">© 2020 BERRYGAMES</div>
+    </div>
+</div>
+<!-- END FOOTER -->
+
+<!-- jQuery first, then Popper.js, Bootstrap JS, then all others -->
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="//cdn.berrygames.net/js/bootstrap/bootstrap.min.js"></script>
+<script src="//cdn.berrygames.net/js/base/cookies.js"></script>
+<script src="//cdn.berrygames.net/js/base/footer-media.js"></script>
+{% block javascripts_bottom %}{% endblock %}
+
+<!-- SEO -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "BerryGames",
+        "url": "https://berrygames.net",
+        "sameAs": [
+            "https://twitter.com/BerryGames_MC",
+            "https://youtube.com/channel/UClM6wO9PB2hylU7sl5bnJNg",
+            "https://facebook.com/BerryGamesMC",
+            "https://twitch.tv/berrygamesmc",
+            "https://instagram.com/berrygamesmc",
+            "https://snapchat.com/add/berrygamesmc"
+        ]
+    }
+</script>
+</body>
+</html>

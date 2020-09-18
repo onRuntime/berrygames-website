@@ -1,0 +1,13 @@
+{% extends 'berrygames/berryplus/base.html.twig' %}
+{% block page_title %}Create new user{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="card card-primary">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+                {{ include('berrygames/berryplus/berryplus/users/users_form.html.twig', { button: 'Create new user'}) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

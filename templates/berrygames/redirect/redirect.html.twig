@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BerryGames • Redirect</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.berrygames.net/css/redirect/style.css">
+    <link href="//fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="//cdn.berrygames.net/img/logo/logo.png">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+</head>
+<body>
+<section>
+    <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+    </div>
+    <p>
+        PREPARE TO BE REDIRECTED TO
+        <a href="{{ final_url }}">{{ parsed_url|upper }}</a>
+        <span id="seconds">IN 5 SECONDS</span>
+        !
+    </p>
+    <img class="logo" src="//cdn.berrygames.net/img/logo/logo.png" style="height: 64px; width: 64px;" alt="Logo">
+</section>
+</body>
+<script>
+    window.setTimeout(function () {
+        document.getElementById("seconds").innerHTML = "IN 4 SECONDS";
+    }, 1000);
+    window.setTimeout(function () {
+        document.getElementById("seconds").innerHTML = "IN 3 SECONDS";
+    }, 2000);
+    window.setTimeout(function () {
+        document.getElementById("seconds").innerHTML = "IN 2 SECONDS";
+    }, 3000);
+    window.setTimeout(function () {
+        document.getElementById("seconds").innerHTML = "IN 1 SECONDS";
+    }, 4000);
+    window.setTimeout(function () {
+        document.getElementById("seconds").innerHTML = "NOW";
+        window.location.href = "{{ final_url }}";
+    }, 5000);
+</script>
+</html>

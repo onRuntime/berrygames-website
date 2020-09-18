@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BerryGames • News
+{% endblock %}
+
+{% block keywords %}news, articles, article
+{% endblock %}
+
+{% block stylesheets_css %}
+    <link rel="stylesheet" href="//cdn.berrygames.net/css/home/style.css">
+{% endblock %}
+
+{% block content %}
+    <style>
+        .header {
+            position: relative;
+            background: var(--bry-black-light);
+        }
+    </style>
+    <div class="content" id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="section news">
+                        <h2>News</h2>
+                        <div class="row justify-content-md-center">
+                            {% set featuredNew = 0 %}
+                            {% for new in news %}
+                                {% if new.display == true %}
+                                    {% set featuredNew = max(new.id, featuredNew) %}
+                                    {% if new.id == featuredNew %}
+                                        <div class="col-md-12 post">
+                                            <a href="{{ path('news_show', {'link': new.link }) }}">
+                                                <img src="{{ new.thumbnails }}" class="img-thumbnail" alt="Title">
+                                                <div class="post-title">{{ new.title }}</div>
+                                                <div class="post-category">{{ new.category }}</div>
+                                                <div class="post-edition">{{ new.post.postDate | date('F jS \\a\\t g:ia') }}</div>
+                                            </a>
+                                        </div>
+                                    {% else %}
+                                        <div class="col-md-6 post">
+                                            <a href="{{ path('news_show', {'link': new.link }) }}">
+                                                <img src="{{ new.thumbnails }}" class="img-thumbnail" alt="Title">
+                                                <div class="post-title">{{ new.title }}</div>
+                                                <div class="post-category">{{ new.category }}</div>
+                                                <div class="post-edition">{{ new.post.postDate | date('F jS \\a\\t g:ia') }}</div>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    {{ include('berrygames/home/home.sections.right.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts_bottom %}
+    <script src="//cdn.berrygames.net/js/home/discord-widget.js"></script>
+{% endblock %}

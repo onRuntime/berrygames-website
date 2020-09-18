@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BerryGames • Home | The most fruity of Minecraft Mini Games servers!
+{% endblock %}
+{% block keywords %}home, news, article, twitter, devblog, discord, forum
+{% endblock %}
+
+{% block stylesheets_css %}
+    <link rel="stylesheet" href="//cdn.berrygames.net/css/home/style.css">
+{% endblock %}
+
+{% block content %}
+    <div class="promoted" id="promoted">
+        <div class="scroll-content-wrapper">
+            <div class="promoted-button">
+                <div class="promoted-button-container">
+                    <span class="normal">play.berrygames.net</span>
+                    <span class="hover">Click to copy</span>
+                    <span class="copied">Copied !</span>
+                </div>
+            </div>
+            <div class="scroll-content">
+                <a href="#content">
+                    <i class="las la-angle-double-down"></i>
+                </a>
+            </div>
+        </div>
+        <div class="promoted-text">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-5 promoted-resume">
+                        <h1>BerryGames — The FREE Minecraft minigames server from 1.8 to 1.15.</h1>
+                        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusamus est debitis esse
+                            repellat quo vitae. 🎅<br>
+                            <br>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit adipisci exercitationem iste
+                            pariatur!<br>
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat aut numquam autem laborum
+                            accusantium sit sequi quam. 🥳
+                        </h2>
+                    </div>
+                    <div class="col-md-5 promoted-trending">
+                        <img src="//cdn.berrygames.net/img/icons/mockup.png" class="mockup"
+                             alt="Promoted BerryGames">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="content" id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="section news">
+                        <a href="{{ path('news') }}">
+                            <h2>Last News</h2>
+                        </a>
+                        <div class="row justify-content-md-center">
+                            {% set featuredNew = 0 %}
+                            {% for new in news %}
+                                {% if new.display == true %}
+                                    {% set featuredNew = max(new.id, featuredNew) %}
+                                    {% if new.id == featuredNew %}
+                                        <div class="col-md-12 post">
+                                            <a href="{{ path('news_show', {'link': new.link }) }}">
+                                                <img src="{{ new.thumbnails }}" class="img-thumbnail" alt="Title">
+                                                <div class="post-title">{{ new.title }}</div>
+                                                <div class="post-category">{{ new.category }}</div>
+                                                <div class="post-edition">{{ new.post.postDate | date('F jS \\a\\t g:ia') }}</div>
+                                            </a>
+                                        </div>
+                                    {% else %}
+                                        <div class="col-md-5 post">
+                                            <a href="{{ path('news_show', {'link': new.link }) }}">
+                                                <img src="{{ new.thumbnails }}" class="img-thumbnail" alt="Title">
+                                                <div class="post-title">{{ new.title }}</div>
+                                                <div class="post-category">{{ new.category }}</div>
+                                                <div class="post-edition">{{ new.post.postDate | date('F jS \\a\\t g:ia') }}</div>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            <div class="col-md-12 show-more">
+                                <a href="#">
+                                    <i class="las la-angle-down"></i>&nbsp;&nbsp; Show more news &nbsp;&nbsp;<i
+                                            class="las la-angle-down"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    {{ include('berrygames/home/home.sections.right.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts_bottom %}
+    <script src="//cdn.berrygames.net/js/home/promoted-button.js"></script>
+    <script src="//cdn.berrygames.net/js/home/discord-widget.js"></script>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'berrygames/berryplus/base.html.twig' %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-success btn-sm" href="{{ path('berryplus.minecraft.translations.new') }}">
+                    <i class="fas fa-plus">
+                    </i>
+                    Create a new key
+                </a>
+                {% for message in app.flashes('success') %}
+                    <div class="btn btn-success btn-sm">{{ message }}</div>
+                {% endfor %}
+                <div class="card-tools">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Search Key">
+                        <div class="input-group-append">
+                            <div class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                    <tr>
+                        <th style="width: 15%">
+                            Key
+                        </th>
+                        <th>
+                            English
+                        </th>
+                        <th>
+                            Français
+                        </th>
+                        <th>
+                            Español
+                        </th>
+                        <th>
+                            Deutsch
+                        </th>
+                        <th style="width: 15%">
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for key in i18n %}
+                        <tr id="{{ key.i18n }}">
+                            <td>
+                                <a>
+                                    {{ key.i18n }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ key.en }}
+                            </td>
+                            <td>
+                                {{ key.fr }}
+                            </td>
+                            <td>
+                                Unknow
+                            </td>
+                            <td>
+                                Unknow
+                            </td>
+                            <td class="project-actions text-right">
+                                <a class="btn btn-info btn-sm"
+                                   href="{{ path('berryplus.minecraft.translations.edit', {'key': key.i18n }) }}">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger btn-sm"
+                                   href="{{ path('berryplus.minecraft.translations.delete', {'key': key.i18n }) }}"
+                                   onclick='return confirm("Are you sure you want to delete {{ key.i18n }}?")'>
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+    <!-- /.content -->
+{% endblock %}

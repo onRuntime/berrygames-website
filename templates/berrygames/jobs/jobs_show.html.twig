@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BerryGames • Jobs | {{ job|title }}
+{% endblock %}
+
+{% block keywords %}jobs, job, {{ job }}
+{% endblock %}
+
+{% block description %}Apply for {{ job|title }}
+{% endblock %}
+
+{% block content %}
+    <div class="content" id="content">
+        <div class="typeform-widget" data-url="https://berrygames.typeform.com/to/{{ id }}" data-transparency="100"
+             data-hide-headers=true data-hide-footer=true style="width: 100%; height: 80vh; min-height: 750px"></div>
+        <script> (function () {
+                var qs, js, q, s, d = document, gi = d.getElementById, ce = d.createElement,
+                    gt = d.getElementsByTagName, id = "typef_orm", b = "https://embed.typeform.com/";
+                if (!gi.call(d, id)) {
+                    js = ce.call(d, "script");
+                    js.id = id;
+                    js.src = b + "embed.js";
+                    q = gt.call(d, "script")[0];
+                    q.parentNode.insertBefore(js, q)
+                }
+            })() </script>
+    </div>
+{% endblock %}
+{% block javascripts_bottom %}
+    <script type="text/javascript" src="https://embed.typeform.com/embed.js">
+{% endblock %}

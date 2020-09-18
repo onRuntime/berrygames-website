@@ -32,20 +32,20 @@ BerryGames official website.
 ## Usage
 * Note:
 Especially when you operate on an existing production project, do not put the following folders/files:
-- .env
-- var
-- vendor
-- .idea
-- .git
-- public/forum
+	- .env
+	- var
+	- vendor
+	- .idea
+	- .git
+	- public/forum
 
 * In case of error 500 try to use the following commands in the project folder:
-- chmod -R 777 var/log/
-- chmod -R 777 var/cache/
+	- chmod -R 777 var/log/
+	- chmod -R 777 var/cache/
 
 * At each production start, perform the following commands in the project folder:
-- rm -rf var/cache/prod/
-- rm -rf var/cache/dev/ (if the folder exists)
+	- rm -rf var/cache/prod/
+	- rm -rf var/cache/dev/ (if the folder exists)
 
 ## Support
 <a href="https://www.patreon.com/onruntime">

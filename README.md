@@ -11,7 +11,7 @@
 </div>
 
 # BerryGames - Website
-BerryGames official website.
+BerryGames main website.
 
 ## Installation
 * [Install Symfony](https://symfony.com/doc/current/setup.html) with Composer (see [requirements details](https://symfony.com/doc/current/reference/requirements.html)).
